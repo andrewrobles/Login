@@ -23,9 +23,10 @@ class LoginForm extends React.Component {
     return (
       <main class="form-signin">
         <form onSubmit={e => this.props.handle_login(e, this.state)}>
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+          <h1 class="h3 mb-3 fw-normal d-flex justify-content-center">Please sign in</h1>
           
           <label htmlFor="username">Username</label>
+
           <input
             type="text"
             name="username"
@@ -44,7 +45,7 @@ class LoginForm extends React.Component {
           <input class="w-100 btn btn-lg btn-primary mt-3" type="submit" />
         </form>
         <div class="mt-3">
-          <label>
+          <label class="d-flex justify-content-center">
             <span type="checkbox" value="remember-me">Create account</span>
           </label>
         </div>

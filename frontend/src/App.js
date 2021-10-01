@@ -92,7 +92,7 @@ class App extends Component {
         form = <SignupForm handle_signup={this.handle_signup} />;
         break;
       default:
-        form = null;
+        form = <LoginForm handle_login={this.handle_login} />;
     }
 
     return (
