@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './LoginForm.css';
+import './SubmitForm.css';
 
-class LoginForm extends React.Component {
+class SubmitForm extends React.Component {
   state = {
     username: '',
     password: ''
@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <main class="form-signin">
-        <form onSubmit={e => this.props.handle_login(e, this.state)}>
+        <form onSubmit={e => this.props.handle_submit(e, this.state)}>
           <h1 class="h3 mb-3 fw-normal d-flex justify-content-center">{this.props.label_text}</h1>
         
           <div className="form-floating"> 
@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
             />
             <label for="floatingPassword">Password</label>
           </div>
-          <input class="w-100 btn btn-lg btn-primary mt-3" type="submit" value={this.props.primary_button_text} />
+          <input class="w-100 btn btn-lg btn-primary mt-3" type="submit" value={this.props.submit_button_text} />
           <button type="button" class="w-100 btn btn-light mt-3" onClick={this.props.secondary_button_action}>
             {this.props.secondary_button_text}
           </button>
@@ -63,8 +63,8 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default SubmitForm;
 
-LoginForm.propTypes = {
+SubmitForm.propTypes = {
   handle_login: PropTypes.func.isRequired,
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav';
-import LoginForm from './components/LoginForm';
+import SubmitForm from './components/SubmitForm';
 import SignupForm from './components/SignupForm';
 import './App.css';
 
@@ -86,23 +86,28 @@ class App extends Component {
     let form;
     switch (this.state.displayed_form) {
       case 'login':
-        form = <LoginForm 
-                  handle_login={this.handle_login} 
+        form = <SubmitForm 
                   label_text={"Please sign in"}
-                  primary_button_text = {"Sign in"}
-                  primary_button_action = {this.handle_login}
+                  submit_button_text = {"Sign in"}
+                  handle_submit = {this.handle_login}
                   secondary_button_text = {"Create account"}
                   secondary_button_action = {() => this.display_form('signup')}
                 />;
         break;
       case 'signup':
-        form = <SignupForm handle_signup={this.handle_signup} />;
+        form = <SubmitForm
+                  label_text={"Please sign up"}
+                  submit_button_text = {"Create account"}
+                  handle_submit = {this.handle_signup}
+                  secondary_button_text = {"Sign in"}
+                  secondary_button_action = {() => this.display_form('signin')}
+               />;
         break;
       default:
-        form = <LoginForm handle_login={this.handle_login} 
+        form = <SubmitForm 
                 label_text={"Please sign in"}
-                primary_button_text = {"Sign in"}
-                primary_button_action = {this.handle_login}
+                submit_button_text = {"Sign in"}
+                handle_submit = {this.handle_login}
                 secondary_button_text = {"Create account"}
                 secondary_button_action = {() => this.display_form('signup')}
               />;
