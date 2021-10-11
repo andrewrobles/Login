@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
     return (
       <main class="form-signin">
         <form onSubmit={e => this.props.handle_login(e, this.state)}>
-          <h1 class="h3 mb-3 fw-normal d-flex justify-content-center">Please sign in</h1>
+          <h1 class="h3 mb-3 fw-normal d-flex justify-content-center">{this.props.label_text}</h1>
         
           <div className="form-floating"> 
             <input
@@ -49,11 +49,13 @@ class LoginForm extends React.Component {
             />
             <label for="floatingPassword">Password</label>
           </div>
-          <input class="w-100 btn btn-lg btn-primary mt-3" type="submit" />
+          <input class="w-100 btn btn-lg btn-primary mt-3" type="submit" value={this.props.primary_button_text} />
+          <button type="button" class="w-100 btn btn-light mt-3" onClick={this.props.secondary_button_action}>
+            {this.props.secondary_button_text}
+          </button>
         </form>
-        <div class="mt-3">
+        <div class="mt-1">
           <label class="d-flex justify-content-center">
-            <span type="checkbox" value="remember-me">Create account</span>
           </label>
         </div>
       </main>
@@ -64,5 +66,5 @@ class LoginForm extends React.Component {
 export default LoginForm;
 
 LoginForm.propTypes = {
-  handle_login: PropTypes.func.isRequired
+  handle_login: PropTypes.func.isRequired,
 };

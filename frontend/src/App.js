@@ -86,13 +86,26 @@ class App extends Component {
     let form;
     switch (this.state.displayed_form) {
       case 'login':
-        form = <LoginForm handle_login={this.handle_login} />;
+        form = <LoginForm 
+                  handle_login={this.handle_login} 
+                  label_text={"Please sign in"}
+                  primary_button_text = {"Sign in"}
+                  primary_button_action = {this.handle_login}
+                  secondary_button_text = {"Create account"}
+                  secondary_button_action = {() => this.display_form('signup')}
+                />;
         break;
       case 'signup':
         form = <SignupForm handle_signup={this.handle_signup} />;
         break;
       default:
-        form = <LoginForm handle_login={this.handle_login} />;
+        form = <LoginForm handle_login={this.handle_login} 
+                label_text={"Please sign in"}
+                primary_button_text = {"Sign in"}
+                primary_button_action = {this.handle_login}
+                secondary_button_text = {"Create account"}
+                secondary_button_action = {() => this.display_form('signup')}
+              />;
     }
 
     return (
