@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav';
 import SubmitForm from './components/SubmitForm';
-import SignupForm from './components/SignupForm';
 import './App.css';
 
 const base_url = 'http://localhost:8000'
@@ -120,12 +119,12 @@ class App extends Component {
           display_form={this.display_form}
           handle_logout={this.handle_logout}
         />
-        {form}
-        <h3>
+        <span>
           {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : ''}
-        </h3>
+            ? <h3>Hello, {this.state.username}</h3>
+            : form
+          }
+        </span>
       </div>
     );
   }
